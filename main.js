@@ -1,11 +1,8 @@
 import Room from './Models/Room.js'
+import MovementControl from './MovementControl.js'
 
 let container = document.getElementById('container')
-let camera, scene, renderer, control
-
-//object
-let cube
-let point
+let camera, scene, renderer
 
 init()
 animate()
@@ -16,8 +13,7 @@ function init () {
 	initRenderer()
 	initLight()
 
-	control = new THREE.OrbitControls(camera, renderer.domElement)
-	control.enableZoom = false
+	let control = new MovementControl(camera, renderer.domElement)
 
 	new Room('./GLTF/models.glb', scene)
 
@@ -52,7 +48,6 @@ function initCamera () {
 
 function update () {
 
-	control.update()
 	renderer.render(scene, camera)
 }
 
@@ -60,3 +55,4 @@ function animate () {
 	update()
 	requestAnimationFrame(animate)
 }
+
