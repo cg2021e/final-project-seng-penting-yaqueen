@@ -15,7 +15,7 @@ function init () {
 
 	let control = new MovementControl(camera, renderer.domElement)
 
-	new Room('./GLTF/models.glb', scene)
+	new Room( scene)
 
 }
 
