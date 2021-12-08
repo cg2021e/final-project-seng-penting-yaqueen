@@ -1,5 +1,7 @@
+import Room from './Models/Room.js'
+
 let container = document.getElementById('container')
-let camera, scene, renderer
+let camera, scene, renderer, control
 
 //object
 let cube
@@ -12,14 +14,23 @@ function init () {
 	scene = new THREE.Scene()
 	initCamera()
 	initRenderer()
-	initCube()
+	initLight()
 
-	let light = new THREE.PointLight(0xffffff)
+	control = new THREE.OrbitControls(camera, renderer.domElement)
+	control.enableZoom = false
+
+	new Room('./GLTF/models.glb', scene)
+
+}
+
+function initLight () {
+	let light = new THREE.PointLight(0x404040)
 	light.position.set(5, 5, 5)
 	scene.add(light)
 
 	let ambient = new THREE.AmbientLight(0x404040)
 	scene.add(ambient)
+
 }
 
 function initRenderer () {
@@ -27,13 +38,6 @@ function initRenderer () {
 	renderer.setPixelRatio(window.devicePixelRatio)
 	renderer.setSize(window.innerWidth, window.innerHeight)
 	container.appendChild(renderer.domElement)
-}
-
-function initCube () {
-	let geometry = new THREE.BoxGeometry(1, 1, 1)
-	let material = new THREE.MeshLambertMaterial({ color: 0xff0000 })
-	cube = new THREE.Mesh(geometry, material)
-	scene.add(cube)
 }
 
 function initCamera () {
@@ -47,8 +51,8 @@ function initCamera () {
 }
 
 function update () {
-	cube.rotation.y += 0.05
 
+	control.update()
 	renderer.render(scene, camera)
 }
 
