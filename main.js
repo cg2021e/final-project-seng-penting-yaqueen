@@ -1,13 +1,15 @@
 import Room from './Models/Room.js'
+import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
+import TripWire from './TripWire.js'
 
 let container = document.getElementById('container')
 let camera, scene, renderer
 
-init()
+await init()
 animate()
 
-function init() {
+async function init() {
     scene = new THREE.Scene()
     initCamera()
     initRenderer()
@@ -15,7 +17,15 @@ function init() {
 
     let control = new MovementControl(camera, renderer.domElement)
 
-    new Room(scene)
+    let room = new Room(scene)
+    await room.load()
+    scene.add(room.object)
+    room.object.position.y = -2
+
+    let gate = new Gate(scene)
+    await gate.load()
+    scene.add(gate.object)
+    gate.object.position.y = -2
 }
 
 function initLight() {

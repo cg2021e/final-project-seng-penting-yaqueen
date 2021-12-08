@@ -1,12 +1,14 @@
-export default class LoadedObjects {
-	constructor (modelPath, scene, onLoad) {
-		this.loader = new THREE.GLTFLoader()
+import loadGLTF from '../AsyncLoader.js'
 
-		this.loader.load(modelPath,
-			(loadedGLTF) => {
-				this.object = loadedGLTF.scene
-				scene.add(this.object)
-				onLoad()
-			})
-	}
+export default class LoadedObjects {
+    constructor(modelPath, scene) {
+        this.loader = new THREE.GLTFLoader()
+        this.modelPath = modelPath
+        this.scene = scene
+    }
+
+    async load() {
+        let gltf = await loadGLTF(this.modelPath, this.loader)
+        this.object = gltf.scene
+    }
 }
