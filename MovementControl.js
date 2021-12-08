@@ -22,17 +22,20 @@ export default class MovementControl {
 		const onKeyDown = function (event) {
 			switch (event.code) {
 				case 'KeyW':
-					control.moveForward(.25)
+					control.moveForward(.125)
 					break
 				case 'KeyA':
-					control.moveRight(-.25)
+					control.moveRight(-.125)
 					break
 				case 'KeyS':
-					control.moveForward(-.25)
+					control.moveForward(-.125)
 					break
 				case 'KeyD':
-					control.moveRight(.25)
+					control.moveRight(.125)
 					break
+			}
+			if (event.code == 'KeyW'){
+				control.moveForward(.125)
 			}
 		}
 		document.addEventListener('keydown', onKeyDown, false)
