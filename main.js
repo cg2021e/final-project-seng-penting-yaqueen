@@ -1,7 +1,7 @@
 import Room from './Models/Room.js'
 import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
-// import TripWire from './TripWire.js'
+import TripWire from './TripWire.js'
 
 let container = document.getElementById('container')
 let camera, scene, renderer
