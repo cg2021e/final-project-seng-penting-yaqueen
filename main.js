@@ -6,6 +6,8 @@ import TripWire from './TripWire.js'
 let container = document.getElementById('container')
 let camera, scene, renderer
 
+let tripWire
+
 await init()
 animate()
 
@@ -17,6 +19,7 @@ async function init() {
 
     let control = new MovementControl(camera, renderer.domElement)
 
+    //LoadObjects
     let room = new Room(scene)
     await room.load()
     scene.add(room.object)
@@ -26,6 +29,13 @@ async function init() {
     await gate.load()
     scene.add(gate.object)
     gate.object.position.y = -2
+
+    tripWire = new TripWire(
+        scene,
+        gate.object,
+        new THREE.Vector3(1, 0, -15),
+        new THREE.Vector3(-1, 0, -15)
+    )
 }
 
 function initLight() {
@@ -53,10 +63,20 @@ function initCamera() {
     )
     camera.position.set(0, 0, -25)
     camera.rotation.y += Math.PI
+
+    //camera body
+    let material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    let box = new THREE.BoxGeometry()
+
+    let boxMesh = new THREE.Mesh(box, material)
+    camera.add(boxMesh)
 }
 
 function update() {
     renderer.render(scene, camera)
+
+    if (tripWire.isIntersecting(camera.children[0]))
+        console.log('its intersection')
 }
 
 function animate() {
