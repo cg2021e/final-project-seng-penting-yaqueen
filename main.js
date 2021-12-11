@@ -6,7 +6,11 @@ import TripWire from './TripWire.js'
 let container = document.getElementById('container')
 let camera, scene, renderer
 
-let tripWire
+let outerTrigger
+let innerTrigger
+
+//objects
+let gate
 
 await init()
 animate()
@@ -25,16 +29,24 @@ async function init() {
     scene.add(room.object)
     room.object.position.y = -2
 
-    let gate = new Gate(scene)
+    gate = new Gate(scene)
     await gate.load()
     scene.add(gate.object)
     gate.object.position.y = -2
+    gate.setOpenClosePosition()
 
-    tripWire = new TripWire(
+    outerTrigger = new TripWire(
         scene,
         gate.object,
         new THREE.Vector3(1, 0, -15),
         new THREE.Vector3(-1, 0, -15)
+    )
+
+    innerTrigger = new TripWire(
+        scene,
+        gate.object,
+        new THREE.Vector3(1, 0, -10),
+        new THREE.Vector3(-1, 0, -10)
     )
 }
 
@@ -75,8 +87,9 @@ function initCamera() {
 function update() {
     renderer.render(scene, camera)
 
-    if (tripWire.isIntersecting(camera.children[0]))
-        console.log('its intersection')
+    gate.update()
+    if (outerTrigger.isIntersecting(camera.children[0]))
+        gate.targetIsOpen = true
 }
 
 function animate() {
