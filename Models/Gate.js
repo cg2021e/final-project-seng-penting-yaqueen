@@ -10,7 +10,7 @@ export default class Gate extends LoadedObjects {
     setOpenClosePosition() {
         this.closePosition = this.object.position
         this.openPosition = this.object.position.clone()
-        this.openPosition.y += 10
+        this.openPosition.y += 2.34945
     }
 
     openGate() {
