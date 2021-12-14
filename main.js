@@ -61,6 +61,10 @@ import NagaIndosiar from './Models/NagaIndosiar'
 		nagaIndosiar = new NagaIndosiar(scene)
 		await nagaIndosiar.load()
 
+		let nagaLight = new THREE.PointLight(0x404040)
+		nagaLight.position.set(0, -.5, -6)
+		scene.add(nagaLight)
+
 		let mjolnirLight = new THREE.PointLight(0x404040)
 		mjolnirLight.position.set(-1.3, 0, -14)
 		scene.add(mjolnirLight)
