@@ -65,6 +65,10 @@ async function init () {
 	let receptionRightLight = new THREE.PointLight(0x404040)
 	receptionRightLight.position.set(1, 0, -9)
 	scene.add(receptionRightLight)
+
+	let mjolnirLight = new THREE.PointLight(0x404040)
+	mjolnirLight.position.set(-1.3, 0, -14)
+	scene.add(mjolnirLight)
 }
 
 function initLight () {
