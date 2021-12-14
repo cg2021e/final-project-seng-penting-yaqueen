@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import ThreeMeshUI from 'three-mesh-ui'
 import Room from './Models/Room.js'
 import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
@@ -71,6 +72,27 @@ import ReceptionTable from './Models/ReceptionTable.js'
 		let mjolnirLight = new THREE.PointLight(0x404040)
 		mjolnirLight.position.set(-1.3, 0, -14)
 		scene.add(mjolnirLight)
+
+		const mjolnirText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		mjolnirText.position.set(-2, .5, -12.75)
+		mjolnirText.rotation.y = 180 * Math.PI / 180
+		scene.add(mjolnirText)
+
+		//
+
+		mjolnirText.add(new ThreeMeshUI.Text({
+			content: 'Thor Was Here !!',
+			fontSize: 0.1
+		}),)
 	}
 
 	function initLight () {
@@ -111,6 +133,7 @@ import ReceptionTable from './Models/ReceptionTable.js'
 		renderer.render(scene, camera)
 
 		gate.update()
+		ThreeMeshUI.update()
 		gate.targetIsOpen = gateTrigger.isIntersecting(camera.children[0])
 	}
 

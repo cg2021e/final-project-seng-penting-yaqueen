@@ -40,7 +40,8 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
-				{ from: __dirname + '/GLTF', to: __dirname + '/dist/GLTF' }
+				{ from: __dirname + '/GLTF', to: __dirname + '/dist/GLTF' },
+				{ from: __dirname + '/fonts', to: __dirname + '/dist/fonts' }
 			],
 
 		})
