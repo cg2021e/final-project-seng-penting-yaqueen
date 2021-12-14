@@ -2,6 +2,7 @@ import Room from './Models/Room.js'
 import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
 import TripWire from './TripWire.js'
+import Monobloc from "./Models/Monobloc.js";
 
 let container = document.getElementById('container')
 let camera, scene, renderer
@@ -10,7 +11,9 @@ let gateTrigger
 let innerTrigger
 
 //objects
+let room
 let gate
+let monobloc
 
 await init()
 animate()
@@ -24,7 +27,7 @@ async function init() {
     let control = new MovementControl(camera, renderer.domElement)
 
     //LoadObjects
-    let room = new Room(scene)
+    room = new Room(scene)
     await room.load()
     scene.add(room.object)
     room.object.position.y = -2
@@ -34,6 +37,12 @@ async function init() {
     scene.add(gate.object)
     gate.object.position.y = -2
     gate.setOpenClosePosition()
+
+    monobloc = new Monobloc(scene)
+    await monobloc.load()
+    scene.add(monobloc.object)
+    monobloc.object.position.y = -0.85
+    monobloc.object.rotation.y += Math.PI
 
     gateTrigger = new TripWire(
         scene,
