@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import Room from './Models/Room.js'
 import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
