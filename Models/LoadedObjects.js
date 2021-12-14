@@ -11,5 +11,6 @@ export default class LoadedObjects {
 	async load () {
 		let gltf = await loadGLTF(this.modelPath, this.loader)
 		this.object = gltf.scene
+		this.animations = gltf.animations
 	}
 }

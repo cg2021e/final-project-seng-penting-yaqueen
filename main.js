@@ -5,11 +5,12 @@ import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
 import TripWire from './TripWire.js'
 import Monobloc from './Models/Monobloc.js'
-import ReceptionTable from './Models/ReceptionTable.js'
+import NagaIndosiar from './Models/NagaIndosiar'
 
 (async () => {
 	let container = document.getElementById('container')
 	let camera, scene, renderer
+	let clock = new THREE.Clock()
 
 	let gateTrigger
 	let innerTrigger
@@ -18,6 +19,7 @@ import ReceptionTable from './Models/ReceptionTable.js'
 	let room
 	let gate
 	let monobloc
+	let nagaIndosiar
 
 	await init()
 	animate()
@@ -56,18 +58,8 @@ import ReceptionTable from './Models/ReceptionTable.js'
 		monobloc.object.position.y = -0.85
 		monobloc.object.rotation.y += Math.PI
 
-		let receptionTable = new ReceptionTable(scene)
-		await receptionTable.load()
-		receptionTable.object.scale.set(.3, .3, .3)
-		receptionTable.object.position.set(0, -1, -8)
-		scene.add(receptionTable.object)
-
-		let receptionLeftLight = new THREE.PointLight(0x404040)
-		receptionLeftLight.position.set(-1, 0, -9)
-		scene.add(receptionLeftLight)
-		let receptionRightLight = new THREE.PointLight(0x404040)
-		receptionRightLight.position.set(1, 0, -9)
-		scene.add(receptionRightLight)
+		nagaIndosiar = new NagaIndosiar(scene)
+		await nagaIndosiar.load()
 
 		let mjolnirLight = new THREE.PointLight(0x404040)
 		mjolnirLight.position.set(-1.3, 0, -14)
@@ -132,6 +124,7 @@ import ReceptionTable from './Models/ReceptionTable.js'
 	function update () {
 		renderer.render(scene, camera)
 
+		nagaIndosiar.mixers.forEach(mixer => mixer.update(clock.getDelta()))
 		gate.update()
 		ThreeMeshUI.update()
 		gate.targetIsOpen = gateTrigger.isIntersecting(camera.children[0])
