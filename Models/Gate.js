@@ -8,7 +8,7 @@ export default class Gate extends LoadedObjects {
     }
 
     setOpenClosePosition() {
-        this.closePosition = this.object.position
+        this.closePosition = this.object.position.clone()
         this.openPosition = this.object.position.clone()
         this.openPosition.y += 2.34945
     }
@@ -17,7 +17,14 @@ export default class Gate extends LoadedObjects {
         this.object.position.lerp(this.openPosition, 0.01)
     }
 
+    closeGate() {
+        this.object.position.lerp(this.closePosition, 0.01)
+    }
+
     update() {
-        if (this.targetIsOpen) this.openGate()
+        if (this.targetIsOpen)
+            this.openGate()
+        else
+            this.closeGate()
     }
 }

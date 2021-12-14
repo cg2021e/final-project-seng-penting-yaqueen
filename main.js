@@ -90,6 +90,8 @@ function update() {
     gate.update()
     if (outerTrigger.isIntersecting(camera.children[0]))
         gate.targetIsOpen = true
+    if (innerTrigger.isIntersecting(camera.children[0]))
+        gate.targetIsOpen = false
 }
 
 function animate() {
