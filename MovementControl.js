@@ -10,6 +10,7 @@ export default class MovementControl {
 			},
 			false
 		)
+		menu.style.display = 'none'
 
 		control.addEventListener('lock', function () {
 			menu.style.display = 'none'
@@ -20,16 +21,13 @@ export default class MovementControl {
 		})
 
 		const onKeyDown = function (event) {
-			if (event.code == 'KeyW'){
+			if (event.code == 'KeyW') {
 				control.moveForward(.125)
-			}
-			else if (event.code == 'KeyA'){
+			} else if (event.code == 'KeyA') {
 				control.moveRight(-.125)
-			}
-			else if (event.code == 'KeyS'){
+			} else if (event.code == 'KeyS') {
 				control.moveForward(-.125)
-			}
-			else if (event.code == 'KeyD'){
+			} else if (event.code == 'KeyD') {
 				control.moveRight(.125)
 			}
 		}
