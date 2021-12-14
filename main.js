@@ -2,6 +2,7 @@ import Room from './Models/Room.js'
 import Gate from './Models/Gate.js'
 import MovementControl from './MovementControl.js'
 import TripWire from './TripWire.js'
+import Monobloc from "./Models/Monobloc.js";
 import ReceptionTable from './Models/ReceptionTable.js'
 
 let container = document.getElementById('container')
@@ -11,7 +12,9 @@ let gateTrigger
 let innerTrigger
 
 //objects
+let room
 let gate
+let monobloc
 
 await init()
 animate()
@@ -24,11 +27,11 @@ async function init () {
 
 	let control = new MovementControl(camera, renderer.domElement)
 
-	//LoadObjects
-	let room = new Room(scene)
-	await room.load()
-	scene.add(room.object)
-	room.object.position.y = -2
+    //LoadObjects
+    room = new Room(scene)
+    await room.load()
+    scene.add(room.object)
+    room.object.position.y = -2
 
 	gate = new Gate(scene)
 	await gate.load()
@@ -43,6 +46,12 @@ async function init () {
 		new THREE.Vector3(0, 0, -10),
 		false
 	)
+
+	monobloc = new Monobloc(scene)
+	await monobloc.load()
+	scene.add(monobloc.object)
+	monobloc.object.position.y = -0.85
+	monobloc.object.rotation.y += Math.PI
 
 	let receptionTable = new ReceptionTable(scene)
 	await receptionTable.load()
@@ -84,9 +93,9 @@ function initCamera () {
 	camera.position.set(0, 0, -10)
 	camera.rotation.y += Math.PI
 
-	//camera body
-	let material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
-	let box = new THREE.BoxGeometry()
+    //camera body
+    let material = new THREE.MeshBasicMaterial({color: 0xff0000})
+    let box = new THREE.BoxGeometry()
 
 	let boxMesh = new THREE.Mesh(box, material)
 	camera.add(boxMesh)
