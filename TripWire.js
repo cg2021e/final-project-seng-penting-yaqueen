@@ -73,6 +73,10 @@ export default class TripWire {
     isIntersecting(object) {
         const intersects = this.raycaster.intersectObject(object)
 
+        if (object.parent.position.z > this.endPoint.z){
+            return false;
+        }
+
         return intersects.length > 0
     }
 }

@@ -10,7 +10,7 @@ export default class MovementControl {
 			},
 			false
 		)
-		menu.style.display = 'none'
+		// menu.style.display = 'none'
 
 		control.addEventListener('lock', function () {
 			menu.style.display = 'none'
