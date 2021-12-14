@@ -49,6 +49,13 @@ async function init () {
 	receptionTable.object.scale.set(.3, .3, .3)
 	receptionTable.object.position.set(0, -1, -8)
 	scene.add(receptionTable.object)
+
+	let receptionLeftLight = new THREE.PointLight(0x404040)
+	receptionLeftLight.position.set(-1, 0, -9)
+	scene.add(receptionLeftLight)
+	let receptionRightLight = new THREE.PointLight(0x404040)
+	receptionRightLight.position.set(1, 0, -9)
+	scene.add(receptionRightLight)
 }
 
 function initLight () {
@@ -74,7 +81,7 @@ function initCamera () {
 		0.1,
 		1100
 	)
-	camera.position.set(0, 0, -25)
+	camera.position.set(0, 0, -10)
 	camera.rotation.y += Math.PI
 
 	//camera body
