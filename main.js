@@ -59,19 +59,14 @@ import Enderman from './Models/Enderman.js'
 
         await initMagic();
 
+        await initNagaIndosiar();
+
         enderman = new Enderman(scene)
         await enderman.load()
 
         let endermLight = new THREE.PointLight(0x404040)
         endermLight.position.set(0, 4, 6)
         scene.add(endermLight)
-
-        nagaIndosiar = new NagaIndosiar(scene)
-        await nagaIndosiar.load()
-
-        let nagaLight = new THREE.PointLight(0x404040)
-        nagaLight.position.set(0, -.5, -6)
-        scene.add(nagaLight)
 
         let mjolnirLight = new THREE.PointLight(0x404040)
         mjolnirLight.position.set(-1.3, 0, -14)
@@ -194,6 +189,35 @@ import Enderman from './Models/Enderman.js'
         magicText.add(new ThreeMeshUI.Text({
             content: 'https://intip.in/sengpentingyaqueen',
             fontSize: 0.75
+        }),)
+    }
+
+    async function initNagaIndosiar() {
+        nagaIndosiar = new NagaIndosiar(scene)
+        await nagaIndosiar.load()
+
+        let nagaLight = new THREE.PointLight(0x404040)
+        nagaLight.position.set(0, -.5, -6)
+        scene.add(nagaLight)
+
+        const nagaIndosiarText = new ThreeMeshUI.Block({
+            width: 1.2,
+            height: 0.2,
+            padding: 0.05,
+            justifyContent: 'center',
+            alignContent: 'center',
+            fontFamily: './fonts/Roboto-msdf.json',
+            fontTexture: './fonts/Roboto-msdf.png',
+        })
+
+        nagaIndosiarText.position.set(0, -.85, -8)
+        nagaIndosiarText.rotation.y = 180 * Math.PI / 180
+        nagaIndosiarText.rotation.x = 15 * Math.PI / 180
+        scene.add(nagaIndosiarText)
+
+        nagaIndosiarText.add(new ThreeMeshUI.Text({
+            content: 'Naga Indosiar But Slightly Better!!!',
+            fontSize: 0.1
         }),)
     }
 })()
