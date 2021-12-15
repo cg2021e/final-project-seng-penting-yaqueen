@@ -6,6 +6,7 @@ import MovementControl from './MovementControl.js'
 import TripWire from './TripWire.js'
 import Monobloc from './Models/Monobloc.js'
 import NagaIndosiar from './Models/NagaIndosiar'
+import Enderman from './Models/Enderman.js'
 
 (async () => {
 	let container = document.getElementById('container')
@@ -20,6 +21,7 @@ import NagaIndosiar from './Models/NagaIndosiar'
 	let gate
 	let monobloc
 	let nagaIndosiar
+	let enderman
 
 	await init()
 	animate()
@@ -57,6 +59,13 @@ import NagaIndosiar from './Models/NagaIndosiar'
 		scene.add(monobloc.object)
 		monobloc.object.position.y = -0.85
 		monobloc.object.rotation.y += Math.PI
+
+		enderman = new Enderman(scene)
+		await enderman.load()
+
+		let endermLight = new THREE.PointLight(0x404040)
+		endermLight.position.set(0, 4, 6)
+		scene.add(endermLight)
 
 		nagaIndosiar = new NagaIndosiar(scene)
 		await nagaIndosiar.load()
