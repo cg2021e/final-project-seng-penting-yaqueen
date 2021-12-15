@@ -94,7 +94,7 @@ import Enderman from './Models/Enderman.js'
         //
 
         mjolnirText.add(new ThreeMeshUI.Text({
-            content: 'Thor Was Here !!',
+            content: 'Thorjiman Was Here !!',
             fontSize: 0.1
         }),)
     }
