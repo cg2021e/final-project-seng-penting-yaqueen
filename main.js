@@ -55,7 +55,9 @@ import Enderman from './Models/Enderman.js'
             false
         )
 
-        await initMonobloc(monobloc, scene);
+        await initMonobloc();
+
+        await initMagic();
 
         enderman = new Enderman(scene)
         await enderman.load()
@@ -145,7 +147,7 @@ import Enderman from './Models/Enderman.js'
         requestAnimationFrame(animate)
     }
 
-    async function initMonobloc(monobloc, scene) {
+    async function initMonobloc() {
         monobloc = new Monobloc(scene)
         await monobloc.load()
         scene.add(monobloc.object)
@@ -170,6 +172,28 @@ import Enderman from './Models/Enderman.js'
         monoblocText.add(new ThreeMeshUI.Text({
             content: 'https://intip.in/monobloc',
             fontSize: 0.1
+        }),)
+    }
+
+    async function initMagic() {
+        const magicText = new ThreeMeshUI.Block({
+            width: 20,
+            height: 1,
+            padding: 0.05,
+            justifyContent: 'center',
+            alignContent: 'center',
+            fontFamily: './fonts/Roboto-msdf.json',
+            fontTexture: './fonts/Roboto-msdf.png',
+        })
+
+        magicText.position.set(0, 0, 30)
+        magicText.rotation.y = 180 * Math.PI / 180
+        magicText.rotation.x = 15 * Math.PI / 180
+        scene.add(magicText)
+
+        magicText.add(new ThreeMeshUI.Text({
+            content: 'https://intip.in/sengpentingyaqueen',
+            fontSize: 0.75
         }),)
     }
 })()
