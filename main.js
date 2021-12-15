@@ -7,7 +7,7 @@ import TripWire from './TripWire.js'
 import Monobloc from './Models/Monobloc.js'
 import NagaIndosiar from './Models/NagaIndosiar'
 import Enderman from './Models/Enderman.js'
-
+import Sendal from './Models/Sendal.js'
 
 (async () => {
     let container = document.getElementById('container')
