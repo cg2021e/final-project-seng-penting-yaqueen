@@ -7,10 +7,10 @@
 #### 05111940000176    Lathifa Itqonina Mardiyati
 #### 05111940000042    Bayu Eka Prawira
 #### 05111940000111    Evelyn Sierra 
-### 05111940000025    Fitrah Arie Ramadhan
+#### 05111940000025    Fitrah Arie Ramadhan
 
 
-### How to install this application
+## How to install this application
 #### Before, we use this application, we have some installation to run this application
 #### Steps
 1. Run "npm install"
