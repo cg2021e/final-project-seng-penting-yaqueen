@@ -205,6 +205,25 @@ import Sendal from './Models/Sendal.js'
 			content: 'https://intip.in/sengpentingyaqueen',
 			fontSize: 0.75
 		}),)
+
+		const anotherMagicText = new ThreeMeshUI.Block({
+			width: 2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		anotherMagicText.position.set(0, 0, -20)
+		anotherMagicText.rotation.y = 180 * Math.PI / 180
+		scene.add(anotherMagicText)
+
+		anotherMagicText.add(new ThreeMeshUI.Text({
+			content: 'Greatness Lies Beyond The Limit',
+			fontSize: 0.1
+		}),)
 	}
 
 	async function initNagaIndosiar () {
