@@ -10,7 +10,7 @@ import Enderman from './Models/Enderman.js'
 import Doge from './Models/Doge'
 import Cheems from './Models/Cheems'
 import Sendal from './Models/Sendal.js'
-// import Globe from './Models/Globe.js'
+import Globe from './Models/Globe.js'
 
 
 (async () => {
@@ -71,7 +71,7 @@ import Sendal from './Models/Sendal.js'
 
 		await initDogeAndCheems()
 
-		// await initGlobe()
+		await initGlobe()
 
 		await initSendal()
 
@@ -261,7 +261,7 @@ import Sendal from './Models/Sendal.js'
 		scene.add(sendalText)
 
 		sendalText.add(new ThreeMeshUI.Text({
-			content: 'ini Sendal',
+			content: 'This is not a weapon',
 			fontSize: 0.1
 		}),)
 	}
@@ -270,6 +270,7 @@ import Sendal from './Models/Sendal.js'
 		globe = new Globe(scene)
 		await globe.load()
 		scene.add(globe.object)
+		globe.object.position.set(10, -1, -1)
 		globe.object.position.y = -0.85
 		globe.object.rotation.y += Math.PI
 
