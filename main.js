@@ -9,6 +9,9 @@ import NagaIndosiar from './Models/NagaIndosiar'
 import Enderman from './Models/Enderman.js'
 import Doge from './Models/Doge'
 import Cheems from './Models/Cheems'
+import Sendal from './Models/Sendal.js'
+// import Globe from './Models/Globe.js'
+
 
 (async () => {
 	let container = document.getElementById('container')
@@ -24,6 +27,8 @@ import Cheems from './Models/Cheems'
 	let monobloc
 	let nagaIndosiar
 	let enderman
+	let sendal
+	let globe
 
 	await init()
 	animate()
@@ -63,6 +68,10 @@ import Cheems from './Models/Cheems'
 		await initNagaIndosiar()
 
 		await initDogeAndCheems()
+
+		// await initGlobe()
+
+		await initSendal()
 
 		enderman = new Enderman(scene)
 		await enderman.load()
@@ -224,6 +233,62 @@ import Cheems from './Models/Cheems'
 			fontSize: 0.1
 		}),)
 	}
+
+	async function initSendal(){
+		sendal = new Sendal(scene)
+		await sendal.load()
+		scene.add(sendal.object)
+		sendal.object.position.y = -0.85
+		sendal.object.rotation.y += Math.PI
+
+		const sendalText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		sendalText.position.set(0, -.35, -.70)
+		sendalText.rotation.y = 180 * Math.PI / 180
+		sendalText.rotation.x = 15 * Math.PI / 180
+		scene.add(sendalText)
+
+		sendalText.add(new ThreeMeshUI.Text({
+			content: 'https://intip.in/monobloc',
+			fontSize: 0.1
+		}),)
+	}
+
+	// async function initGlobe(){
+	// 	globe = new Globe(scene)
+	// 	await globe.load()
+	// 	scene.add(globe.object)
+	// 	globe.object.position.y = -0.85
+	// 	globe.object.rotation.y += Math.PI
+
+	// 	const globeText = new ThreeMeshUI.Block({
+	// 		width: 1.2,
+	// 		height: 0.2,
+	// 		padding: 0.05,
+	// 		justifyContent: 'center',
+	// 		alignContent: 'center',
+	// 		fontFamily: './fonts/Roboto-msdf.json',
+	// 		fontTexture: './fonts/Roboto-msdf.png',
+	// 	})
+
+	// 	globeText.position.set(0, -.35, -.70)
+	// 	globeText.rotation.y = 180 * Math.PI / 180
+	// 	globeText.rotation.x = 15 * Math.PI / 180
+	// 	scene.add(globeText)
+
+	// 	globeText.add(new ThreeMeshUI.Text({
+	// 		content: 'https://intip.in/monobloc',
+	// 		fontSize: 0.1
+	// 	}),)
+	// }
 
 	async function initDogeAndCheems () {
 		let doge = new Doge(scene)
