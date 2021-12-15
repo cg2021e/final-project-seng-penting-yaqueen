@@ -16,7 +16,6 @@ import Cheems from './Models/Cheems'
 	let clock = new THREE.Clock()
 
 	let gateTrigger
-	let innerTrigger
 
 //objects
 	let room
@@ -28,13 +27,16 @@ import Cheems from './Models/Cheems'
 	await init()
 	animate()
 
+	function initMovementControl() {
+		new MovementControl(camera, renderer.domElement)
+	}
+
 	async function init () {
 		scene = new THREE.Scene()
 		initCamera()
 		initRenderer()
 		initLight()
-
-		let control = new MovementControl(camera, renderer.domElement)
+		initMovementControl();
 
 		//LoadObjects
 		room = new Room(scene)
@@ -120,7 +122,7 @@ import Cheems from './Models/Cheems'
 			0.1,
 			1100
 		)
-		// camera.position.set(0, 0, -10)
+		// camera.positioon.set(0, 0, -10)
 		camera.position.set(0, 0, -25)
 		camera.rotation.y += Math.PI
 
