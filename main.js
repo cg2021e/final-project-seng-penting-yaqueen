@@ -78,14 +78,6 @@ import Sendal from './Models/Sendal.js'
 		enderman = new Enderman(scene)
 		await enderman.load()
 
-		let endermLight = new THREE.PointLight(0x404040)
-		endermLight.position.set(0, 4, 6)
-		scene.add(endermLight)
-
-		let mjolnirLight = new THREE.PointLight(0x404040)
-		mjolnirLight.position.set(-1.3, 0, -14)
-		scene.add(mjolnirLight)
-
 		const mjolnirText = new ThreeMeshUI.Block({
 			width: 1.2,
 			height: 0.2,
@@ -109,9 +101,20 @@ import Sendal from './Models/Sendal.js'
 	}
 
 	function initLight () {
-		let light = new THREE.PointLight(0x404040)
-		light.position.set(5, 5, 5)
-		scene.add(light)
+		let limit = 8
+		let density = 4
+		for (let x = -limit; x <= limit; x+= density){
+			for (let y = -limit; y <= limit; y+= density){
+				let light = new THREE.PointLight(0x070707)
+				light.position.set(x, 3, y)
+				light.power
+				scene.add(light)
+			}
+		}
+
+		let spawnLight = new THREE.PointLight(0x404040)
+		spawnLight.position.set(0, 0, -25)
+		scene.add(spawnLight)
 
 		let ambient = new THREE.AmbientLight(0x404040)
 		scene.add(ambient)
@@ -229,10 +232,6 @@ import Sendal from './Models/Sendal.js'
 	async function initNagaIndosiar () {
 		nagaIndosiar = new NagaIndosiar(scene)
 		await nagaIndosiar.load()
-
-		let nagaLight = new THREE.PointLight(0x404040)
-		nagaLight.position.set(0, -.5, -6)
-		scene.add(nagaLight)
 
 		const nagaIndosiarText = new ThreeMeshUI.Block({
 			width: 1.2,
