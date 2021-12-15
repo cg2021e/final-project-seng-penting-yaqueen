@@ -205,25 +205,6 @@ import Sendal from './Models/Sendal.js'
 			content: 'https://intip.in/sengpentingyaqueen',
 			fontSize: 0.75
 		}),)
-
-		const anotherMagicText = new ThreeMeshUI.Block({
-			width: 2,
-			height: 0.2,
-			padding: 0.05,
-			justifyContent: 'center',
-			alignContent: 'center',
-			fontFamily: './fonts/Roboto-msdf.json',
-			fontTexture: './fonts/Roboto-msdf.png',
-		})
-
-		anotherMagicText.position.set(0, 0, -20)
-		anotherMagicText.rotation.y = 180 * Math.PI / 180
-		scene.add(anotherMagicText)
-
-		anotherMagicText.add(new ThreeMeshUI.Text({
-			content: 'Greatness Lies Beyond The Limit',
-			fontSize: 0.1
-		}),)
 	}
 
 	async function initNagaIndosiar () {
@@ -259,8 +240,9 @@ import Sendal from './Models/Sendal.js'
 		sendal = new Sendal(scene)
 		await sendal.load()
 		scene.add(sendal.object)
-		sendal.object.position.y = -0.85
-		sendal.object.rotation.y += Math.PI
+		sendal.object.position.set (11, -1, -5)
+		sendal.object.rotation.y += (90*Math.PI)/180
+		sendal.object.scale.set (.6,.6,.6)
 
 		const sendalText = new ThreeMeshUI.Block({
 			width: 1.2,
@@ -272,44 +254,45 @@ import Sendal from './Models/Sendal.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		sendalText.position.set(0, -.35, -.70)
-		sendalText.rotation.y = 180 * Math.PI / 180
+		sendalText.position.set(9, -.6, -5)
+		sendalText.rotation.y -= 90 * Math.PI / 180
 		sendalText.rotation.x = 15 * Math.PI / 180
+		sendalText.rotation.z = 15 * Math.PI / 180
 		scene.add(sendalText)
 
 		sendalText.add(new ThreeMeshUI.Text({
-			content: 'https://intip.in/monobloc',
+			content: 'ini Sendal',
 			fontSize: 0.1
 		}),)
 	}
 
-	// async function initGlobe(){
-	// 	globe = new Globe(scene)
-	// 	await globe.load()
-	// 	scene.add(globe.object)
-	// 	globe.object.position.y = -0.85
-	// 	globe.object.rotation.y += Math.PI
+	async function initGlobe(){
+		globe = new Globe(scene)
+		await globe.load()
+		scene.add(globe.object)
+		globe.object.position.y = -0.85
+		globe.object.rotation.y += Math.PI
 
-	// 	const globeText = new ThreeMeshUI.Block({
-	// 		width: 1.2,
-	// 		height: 0.2,
-	// 		padding: 0.05,
-	// 		justifyContent: 'center',
-	// 		alignContent: 'center',
-	// 		fontFamily: './fonts/Roboto-msdf.json',
-	// 		fontTexture: './fonts/Roboto-msdf.png',
-	// 	})
+		const globeText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
 
-	// 	globeText.position.set(0, -.35, -.70)
-	// 	globeText.rotation.y = 180 * Math.PI / 180
-	// 	globeText.rotation.x = 15 * Math.PI / 180
-	// 	scene.add(globeText)
+		globeText.position.set(0, -.35, -.70)
+		globeText.rotation.y = 180 * Math.PI / 180
+		globeText.rotation.x = 15 * Math.PI / 180
+		scene.add(globeText)
 
-	// 	globeText.add(new ThreeMeshUI.Text({
-	// 		content: 'https://intip.in/monobloc',
-	// 		fontSize: 0.1
-	// 	}),)
-	// }
+		globeText.add(new ThreeMeshUI.Text({
+			content: 'https://intip.in/monobloc',
+			fontSize: 0.1
+		}),)
+	}
 
 	async function initDogeAndCheems () {
 		let doge = new Doge(scene)
