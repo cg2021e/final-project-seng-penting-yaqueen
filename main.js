@@ -11,6 +11,7 @@ import Doge from './Models/Doge'
 import Cheems from './Models/Cheems'
 import Sendal from './Models/Sendal.js'
 import Globe from './Models/Globe.js'
+import Gudetama from './Models/Gudetama.js'
 
 
 (async () => {
@@ -28,6 +29,7 @@ import Globe from './Models/Globe.js'
 	let enderman
 	let sendal
 	let globe
+	let gudetama
 
 	await init()
 	animate()
@@ -74,6 +76,8 @@ import Globe from './Models/Globe.js'
 		await initGlobe()
 
 		await initSendal()
+
+		await initGudetama()
 
 		enderman = new Enderman(scene)
 		await enderman.load()
@@ -349,6 +353,37 @@ import Globe from './Models/Globe.js'
 
 		CheemsText.add(new ThreeMeshUI.Text({
 			content: 'Coding 3D in THREE JS with GLTF Loader \n Coding Level : -100',
+			fontSize: 0.1
+		}),)
+	}
+
+	async function initGudetama(){
+		gudetama = new Gudetama(scene)
+		await gudetama.load()
+		scene.add(gudetama.object)
+		gudetama.object.position.set(-10, -1, -10)
+		gudetama.object.position.y = -0.85
+		gudetama.object.rotation.y += Math.PI
+		gudetama.object.scale.set(.5, .5, .5)
+
+		const gudetamaText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		gudetamaText.position.set(-10, .6, -10)
+		gudetamaText.rotation.y -= 270 * Math.PI / 180
+		gudetamaText.rotation.x = 195 * Math.PI / 180
+		gudetamaText.rotation.z = 165 * Math.PI / 180
+		scene.add(gudetamaText)
+
+		gudetamaText.add(new ThreeMeshUI.Text({
+			content: 'MEH..',
 			fontSize: 0.1
 		}),)
 	}
