@@ -283,13 +283,14 @@ import Globe from './Models/Globe.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		globeText.position.set(0, -.35, -.70)
-		globeText.rotation.y = 180 * Math.PI / 180
+		globeText.position.set(9, -.6, -1)
+		globeText.rotation.y -= 90 * Math.PI / 180
 		globeText.rotation.x = 15 * Math.PI / 180
+		globeText.rotation.z = 15 * Math.PI / 180
 		scene.add(globeText)
 
 		globeText.add(new ThreeMeshUI.Text({
-			content: 'https://intip.in/monobloc',
+			content: 'This is not flat earth',
 			fontSize: 0.1
 		}),)
 	}
