@@ -19,7 +19,6 @@ import Sendal from './Models/Sendal.js'
 	let clock = new THREE.Clock()
 
 	let gateTrigger
-	let innerTrigger
 
 //objects
 	let room
@@ -33,13 +32,16 @@ import Sendal from './Models/Sendal.js'
 	await init()
 	animate()
 
+	function initMovementControl() {
+		new MovementControl(camera, renderer.domElement)
+	}
+
 	async function init () {
 		scene = new THREE.Scene()
 		initCamera()
 		initRenderer()
 		initLight()
-
-		let control = new MovementControl(camera, renderer.domElement)
+		initMovementControl();
 
 		//LoadObjects
 		room = new Room(scene)
@@ -129,8 +131,8 @@ import Sendal from './Models/Sendal.js'
 			0.1,
 			1100
 		)
-		// camera.position.set(0, 0, -10)
-		camera.position.set(0, 0, -20)
+		// camera.positioon.set(0, 0, -10)
+		camera.position.set(0, 0, -25)
 		camera.rotation.y += Math.PI
 
 		//camera body
