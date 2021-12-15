@@ -120,7 +120,8 @@ import Cheems from './Models/Cheems'
 			0.1,
 			1100
 		)
-		camera.position.set(0, 0, -10)
+		// camera.position.set(0, 0, -10)
+		camera.position.set(0, 0, -20)
 		camera.rotation.y += Math.PI
 
 		//camera body
