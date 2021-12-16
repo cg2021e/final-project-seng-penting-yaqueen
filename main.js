@@ -331,7 +331,7 @@ import Deadpool from './Models/Deadpool.js'
 		scene.add(batmanText)
 
 		batmanText.add(new ThreeMeshUI.Text({
-			content: 'This is not a weapon',
+			content: 'What if i told you that im batmanto',
 			fontSize: 0.1
 		}),)
 	}
@@ -360,7 +360,7 @@ import Deadpool from './Models/Deadpool.js'
 		scene.add(deadpoolText)
 
 		deadpoolText.add(new ThreeMeshUI.Text({
-			content: 'This is not a weapon',
+			content: 'I am udinpool and i approve this meme war',
 			fontSize: 0.1
 		}),)
 	}
