@@ -113,18 +113,25 @@ import Deadpool from './Models/Deadpool.js'
 	}
 
 	function initLight () {
-		let limit = 8
-		let density = 4
-		for (let x = -limit; x <= limit; x+= density){
-			for (let y = -limit; y <= limit; y+= density){
-				let light = new THREE.PointLight(0x070707)
-				light.position.set(x, 3, y)
-				light.power
-				scene.add(light)
-			}
-		}
+		let directionalLightTop = new THREE.DirectionalLight(0xffffff, 0.4)
+		scene.add(directionalLightTop)
+		let directionalLightDown = new THREE.DirectionalLight(0xffffff, 0.4)
+		directionalLightDown.position.set(0,-1,0);
+		scene.add(directionalLightDown)
+		let directionalLightBack = new THREE.DirectionalLight(0xffffff, 0.4)
+		directionalLightBack.position.set(0,0,1);
+		scene.add(directionalLightBack)
+		let directionalLightFront = new THREE.DirectionalLight(0xffffff, 0.4)
+		directionalLightFront.position.set(0,0,-1);
+		scene.add(directionalLightFront)
+		let directionalLightLeft = new THREE.DirectionalLight(0xffffff, 0.4)
+		directionalLightLeft.position.set(-1,0,);
+		scene.add(directionalLightLeft)
+		let directionalLightRight = new THREE.DirectionalLight(0xffffff, 0.4)
+		directionalLightRight.position.set(1,0,);
+		scene.add(directionalLightRight)
 
-		let spawnLight = new THREE.PointLight(0x404040)
+		let spawnLight = new THREE.PointLight(0x6a6a6a)
 		spawnLight.position.set(0, 0, -25)
 		scene.add(spawnLight)
 
@@ -334,6 +341,7 @@ import Deadpool from './Models/Deadpool.js'
 			content: 'What if i told you that im batmanto',
 			fontSize: 0.1
 		}),)
+
 	}
 
 	async function initDeadpool(){
