@@ -14,6 +14,7 @@ import Globe from './Models/Globe.js'
 import Gudetama from './Models/Gudetama.js'
 import Batman from './Models/Batman.js'
 import Deadpool from './Models/Deadpool.js'
+import Creeper from './Models/Creeper.js'
 
 
 (async () => {
@@ -34,6 +35,7 @@ import Deadpool from './Models/Deadpool.js'
 	let gudetama
 	let deadpool
 	let batman
+	let creeper
 
 	await init()
 	animate()
@@ -87,8 +89,10 @@ import Deadpool from './Models/Deadpool.js'
 
 		await initDeadpool()
 
-		enderman = new Enderman(scene)
-		await enderman.load()
+		await initEnderman()
+
+		await initCreeper()
+
 
 		const mjolnirText = new ThreeMeshUI.Block({
 			width: 1.2,
@@ -433,6 +437,35 @@ import Deadpool from './Models/Deadpool.js'
 		}),)
 	}
 
+	async function initEnderman(){
+		enderman = new Enderman(scene)
+		await enderman.load()
+		scene.add(enderman.object)
+		enderman.object.position.set (0, -1, 6)
+		enderman.object.rotation.y += (90*Math.PI)/180
+		enderman.object.scale.set (.6,.6,.6)
+
+		const endermanText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		endermanText.position.set(0, -0.6, 5)
+		endermanText.rotation.y = 180 * Math.PI / 180
+		endermanText.rotation.x = 15 * Math.PI / 180
+		scene.add(endermanText)
+
+		endermanText.add(new ThreeMeshUI.Text({
+			content: 'Wanna have a staring contest?',
+			fontSize: 0.1
+		}),)
+	}
+
 	async function initGudetama(){
 		gudetama = new Gudetama(scene)
 		await gudetama.load()
@@ -460,6 +493,37 @@ import Deadpool from './Models/Deadpool.js'
 
 		gudetamaText.add(new ThreeMeshUI.Text({
 			content: 'MEH..',
+			fontSize: 0.1
+		}),)
+	}
+
+	async function initCreeper(){
+		creeper = new Creeper(scene)
+		await creeper.load()
+		scene.add(creeper.object)
+		creeper.object.position.set(-10, -1, -4)
+		creeper.object.position.y = -0.85
+		creeper.object.rotation.y += (90*Math.PI)/180
+		creeper.object.scale.set(.5, .5, .5)
+
+		const creeperText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		creeperText.position.set(-9.5, -0.6, -4)
+		creeperText.rotation.y -= 270 * Math.PI / 180
+		creeperText.rotation.x = 195 * Math.PI / 180
+		creeperText.rotation.z = 165 * Math.PI / 180
+		scene.add(creeperText)
+
+		creeperText.add(new ThreeMeshUI.Text({
+			content: 'AW MAN',
 			fontSize: 0.1
 		}),)
 	}
