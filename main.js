@@ -12,6 +12,8 @@ import Cheems from './Models/Cheems'
 import Sendal from './Models/Sendal.js'
 import Globe from './Models/Globe.js'
 import Gudetama from './Models/Gudetama.js'
+import Batman from './Models/Batman.js'
+import Deadpool from './Models/Deadpool.js'
 
 
 (async () => {
@@ -30,6 +32,8 @@ import Gudetama from './Models/Gudetama.js'
 	let sendal
 	let globe
 	let gudetama
+	let deadpool
+	let batman
 
 	await init()
 	animate()
@@ -78,6 +82,8 @@ import Gudetama from './Models/Gudetama.js'
 		await initSendal()
 
 		await initGudetama()
+
+		await initBatman()
 
 		enderman = new Enderman(scene)
 		await enderman.load()
@@ -295,6 +301,36 @@ import Gudetama from './Models/Gudetama.js'
 
 		globeText.add(new ThreeMeshUI.Text({
 			content: 'This is not flat earth',
+			fontSize: 0.1
+		}),)
+	}
+
+	async function initBatman(){
+		batman = new Batman(scene)
+		await batman.load()
+		scene.add(batman.object)
+		batman.object.position.set (10, -1, -1)
+		batman.object.rotation.y += (90*Math.PI)/180
+		batman.object.scale.set (.6,.6,.6)
+
+		const batmanText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		batmanText.position.set(9, -.6, -5)
+		batmanText.rotation.y -= 90 * Math.PI / 180
+		batmanText.rotation.x = 15 * Math.PI / 180
+		batmanText.rotation.z = 15 * Math.PI / 180
+		scene.add(batmanText)
+
+		batmanText.add(new ThreeMeshUI.Text({
+			content: 'This is not a weapon',
 			fontSize: 0.1
 		}),)
 	}
