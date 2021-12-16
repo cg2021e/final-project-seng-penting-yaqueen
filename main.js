@@ -354,10 +354,9 @@ import Deadpool from './Models/Deadpool.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		deadpoolText.position.set(9, -.6, -5)
-		deadpoolText.rotation.y -= 90 * Math.PI / 180
+		deadpoolText.position.set(-5, -0.6, 2)
+		deadpoolText.rotation.y = 180 * Math.PI / 180
 		deadpoolText.rotation.x = 15 * Math.PI / 180
-		deadpoolText.rotation.z = 15 * Math.PI / 180
 		scene.add(deadpoolText)
 
 		deadpoolText.add(new ThreeMeshUI.Text({
