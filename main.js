@@ -309,8 +309,8 @@ import Deadpool from './Models/Deadpool.js'
 		batman = new Batman(scene)
 		await batman.load()
 		scene.add(batman.object)
-		batman.object.position.set (10, -1, -1)
-		batman.object.rotation.y += (90*Math.PI)/180
+		batman.object.position.set (5, -1, 3)
+		batman.object.rotation.y += (180*Math.PI)/180
 		batman.object.scale.set (.6,.6,.6)
 
 		const batmanText = new ThreeMeshUI.Block({
@@ -334,6 +334,7 @@ import Deadpool from './Models/Deadpool.js'
 			fontSize: 0.1
 		}),)
 	}
+
 
 	async function initDogeAndCheems () {
 		let doge = new Doge(scene)
