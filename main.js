@@ -228,7 +228,6 @@ import Ironmanto from './Models/Ironmanto.js'
 
 		magicText.position.set(0, 0, 30)
 		magicText.rotation.y = 180 * Math.PI / 180
-		magicText.rotation.x = 15 * Math.PI / 180
 		scene.add(magicText)
 
 		magicText.add(new ThreeMeshUI.Text({
@@ -404,7 +403,7 @@ import Ironmanto from './Models/Ironmanto.js'
 		ironmanto = new Ironmanto(scene)
 		await ironmanto.load()
 		scene.add(ironmanto.object)
-		ironmanto.object.position.set (-8, -1, 9)
+		ironmanto.object.position.set (0, -1, 6)
 		ironmanto.object.rotation.y += (180*Math.PI)/180
 		ironmanto.object.scale.set (.6,.6,.6)
 
@@ -418,7 +417,7 @@ import Ironmanto from './Models/Ironmanto.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		ironmantoText.position.set(-8, -0.6, 8)
+		ironmantoText.position.set(0, -0.6, 5)
 		ironmantoText.rotation.y = 180 * Math.PI / 180
 		ironmantoText.rotation.x = 15 * Math.PI / 180
 		scene.add(ironmantoText)
@@ -428,7 +427,6 @@ import Ironmanto from './Models/Ironmanto.js'
 			fontSize: 0.1
 		}),)
 	}
-
 
 	async function initDogeAndCheems () {
 		let doge = new Doge(scene)
@@ -492,7 +490,7 @@ import Ironmanto from './Models/Ironmanto.js'
 		enderman = new Enderman(scene)
 		await enderman.load()
 		scene.add(enderman.object)
-		enderman.object.position.set (0, -1, 6)
+		enderman.object.position.set (8, -1, 9)
 		enderman.object.rotation.y += (90*Math.PI)/180
 		enderman.object.scale.set (.6,.6,.6)
 
@@ -506,7 +504,7 @@ import Ironmanto from './Models/Ironmanto.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		endermanText.position.set(0, -0.6, 5)
+		endermanText.position.set(8, -0.6, 8)
 		endermanText.rotation.y = 180 * Math.PI / 180
 		endermanText.rotation.x = 15 * Math.PI / 180
 		scene.add(endermanText)
@@ -521,10 +519,10 @@ import Ironmanto from './Models/Ironmanto.js'
 		gudetama = new Gudetama(scene)
 		await gudetama.load()
 		scene.add(gudetama.object)
-		gudetama.object.position.set(-10, -1, -10)
+		gudetama.object.position.set(-10, -1, -6)
 		gudetama.object.position.y = -0.85
 		gudetama.object.rotation.y += Math.PI
-		gudetama.object.scale.set(.5, .5, .5)
+		gudetama.object.scale.set(.6, .6, .6)
 
 		const gudetamaText = new ThreeMeshUI.Block({
 			width: 1.2,
@@ -536,14 +534,14 @@ import Ironmanto from './Models/Ironmanto.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		gudetamaText.position.set(-10, .6, -10)
+		gudetamaText.position.set(-10, .6, -6)
 		gudetamaText.rotation.y -= 270 * Math.PI / 180
 		gudetamaText.rotation.x = 195 * Math.PI / 180
 		gudetamaText.rotation.z = 165 * Math.PI / 180
 		scene.add(gudetamaText)
 
 		gudetamaText.add(new ThreeMeshUI.Text({
-			content: 'MEH..',
+			content: 'Me, Every Morning.\nHate Monday.',
 			fontSize: 0.1
 		}),)
 	}
@@ -552,10 +550,9 @@ import Ironmanto from './Models/Ironmanto.js'
 		creeper = new Creeper(scene)
 		await creeper.load()
 		scene.add(creeper.object)
-		creeper.object.position.set(-10, -1, -4)
-		creeper.object.position.y = -0.85
-		creeper.object.rotation.y += (90*Math.PI)/180
-		creeper.object.scale.set(.5, .5, .5)
+		creeper.object.position.set(-8, -1, 9)
+		creeper.object.rotation.y += Math.PI
+		creeper.object.scale.set(.6, .6, .6)
 
 		const creeperText = new ThreeMeshUI.Block({
 			width: 1.2,
@@ -567,10 +564,9 @@ import Ironmanto from './Models/Ironmanto.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		creeperText.position.set(-9.5, -0.6, -4)
-		creeperText.rotation.y -= 270 * Math.PI / 180
-		creeperText.rotation.x = 195 * Math.PI / 180
-		creeperText.rotation.z = 165 * Math.PI / 180
+		creeperText.position.set(-8, -0.6, 8)
+		creeperText.rotation.y = 180 * Math.PI / 180
+		creeperText.rotation.x = 15 * Math.PI / 180
 		scene.add(creeperText)
 
 		creeperText.add(new ThreeMeshUI.Text({
