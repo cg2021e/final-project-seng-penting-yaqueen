@@ -15,6 +15,7 @@ import Gudetama from './Models/Gudetama.js'
 import Batman from './Models/Batman.js'
 import Deadpool from './Models/Deadpool.js'
 import Creeper from './Models/Creeper.js'
+import Ironmanto from './Models/Ironmanto.js'
 
 
 (async () => {
@@ -36,6 +37,7 @@ import Creeper from './Models/Creeper.js'
 	let deadpool
 	let batman
 	let creeper
+	let ironmanto
 
 	await init()
 	animate()
@@ -92,6 +94,8 @@ import Creeper from './Models/Creeper.js'
 		await initEnderman()
 
 		await initCreeper()
+
+		await initIronmanto()
 
 
 		const mjolnirText = new ThreeMeshUI.Block({
@@ -230,6 +234,25 @@ import Creeper from './Models/Creeper.js'
 		magicText.add(new ThreeMeshUI.Text({
 			content: 'https://intip.in/sengpentingyaqueen',
 			fontSize: 0.75
+		}),)
+
+		const anotherMagicText = new ThreeMeshUI.Block({
+			width: 2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		anotherMagicText.position.set(0, 0, -20)
+		anotherMagicText.rotation.y = 180 * Math.PI / 180
+		scene.add(anotherMagicText)
+
+		anotherMagicText.add(new ThreeMeshUI.Text({
+			content: 'Greatness Lies Beyond The Limit',
+			fontSize: 0.1
 		}),)
 	}
 
@@ -377,6 +400,34 @@ import Creeper from './Models/Creeper.js'
 		}),)
 	}
 
+	async function initIronmanto(){
+		ironmanto = new Ironmanto(scene)
+		await ironmanto.load()
+		scene.add(ironmanto.object)
+		ironmanto.object.position.set (-8, -1, 9)
+		ironmanto.object.rotation.y += (180*Math.PI)/180
+		ironmanto.object.scale.set (.6,.6,.6)
+
+		const ironmantoText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		ironmantoText.position.set(-8, -0.6, 8)
+		ironmantoText.rotation.y = 180 * Math.PI / 180
+		ironmantoText.rotation.x = 15 * Math.PI / 180
+		scene.add(ironmantoText)
+
+		ironmantoText.add(new ThreeMeshUI.Text({
+			content: 'Odading Mang Oleh',
+			fontSize: 0.1
+		}),)
+	}
 
 
 	async function initDogeAndCheems () {
