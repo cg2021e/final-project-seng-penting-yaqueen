@@ -87,8 +87,8 @@ import Deadpool from './Models/Deadpool.js'
 
 		await initDeadpool()
 
-		enderman = new Enderman(scene)
-		await enderman.load()
+		await initEnderman()
+
 
 		const mjolnirText = new ThreeMeshUI.Block({
 			width: 1.2,
@@ -429,6 +429,35 @@ import Deadpool from './Models/Deadpool.js'
 
 		CheemsText.add(new ThreeMeshUI.Text({
 			content: 'Coding 3D in THREE JS with GLTF Loader \n Coding Level : -100',
+			fontSize: 0.1
+		}),)
+	}
+
+	async function initEnderman(){
+		enderman = new Enderman(scene)
+		await enderman.load()
+		scene.add(enderman.object)
+		enderman.object.position.set (0, -1, 6)
+		enderman.object.rotation.y += (90*Math.PI)/180
+		enderman.object.scale.set (.6,.6,.6)
+
+		const endermanText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		endermanText.position.set(0, -0.6, 5)
+		endermanText.rotation.y = 180 * Math.PI / 180
+		endermanText.rotation.x = 15 * Math.PI / 180
+		scene.add(endermanText)
+
+		endermanText.add(new ThreeMeshUI.Text({
+			content: 'Wanna have a staring contest?',
 			fontSize: 0.1
 		}),)
 	}
