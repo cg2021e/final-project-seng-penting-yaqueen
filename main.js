@@ -85,6 +85,8 @@ import Deadpool from './Models/Deadpool.js'
 
 		await initBatman()
 
+		await initDeadpool()
+
 		enderman = new Enderman(scene)
 		await enderman.load()
 
@@ -334,6 +336,37 @@ import Deadpool from './Models/Deadpool.js'
 			fontSize: 0.1
 		}),)
 	}
+
+	async function initDeadpool(){
+		deadpool = new Deadpool(scene)
+		await deadpool.load()
+		scene.add(deadpool.object)
+		deadpool.object.position.set (-5, -1, 3)
+		deadpool.object.rotation.y += (90*Math.PI)/180
+		deadpool.object.scale.set (.6,.6,.6)
+
+		const deadpoolText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		deadpoolText.position.set(9, -.6, -5)
+		deadpoolText.rotation.y -= 90 * Math.PI / 180
+		deadpoolText.rotation.x = 15 * Math.PI / 180
+		deadpoolText.rotation.z = 15 * Math.PI / 180
+		scene.add(deadpoolText)
+
+		deadpoolText.add(new ThreeMeshUI.Text({
+			content: 'This is not a weapon',
+			fontSize: 0.1
+		}),)
+	}
+
 
 
 	async function initDogeAndCheems () {
