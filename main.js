@@ -14,6 +14,7 @@ import Globe from './Models/Globe.js'
 import Gudetama from './Models/Gudetama.js'
 import Batman from './Models/Batman.js'
 import Deadpool from './Models/Deadpool.js'
+import Creeper from './Models/Creeper.js'
 
 
 (async () => {
@@ -34,6 +35,7 @@ import Deadpool from './Models/Deadpool.js'
 	let gudetama
 	let deadpool
 	let batman
+	let creeper
 
 	await init()
 	animate()
@@ -88,6 +90,8 @@ import Deadpool from './Models/Deadpool.js'
 		await initDeadpool()
 
 		await initEnderman()
+
+		await initCreeper()
 
 
 		const mjolnirText = new ThreeMeshUI.Block({
@@ -489,6 +493,37 @@ import Deadpool from './Models/Deadpool.js'
 
 		gudetamaText.add(new ThreeMeshUI.Text({
 			content: 'MEH..',
+			fontSize: 0.1
+		}),)
+	}
+
+	async function initCreeper(){
+		creeper = new Creeper(scene)
+		await creeper.load()
+		scene.add(creeper.object)
+		creeper.object.position.set(-10, -1, 6)
+		creeper.object.position.y = -0.85
+		creeper.object.rotation.y += Math.PI
+		creeper.object.scale.set(.5, .5, .5)
+
+		const creeperText = new ThreeMeshUI.Block({
+			width: 1.2,
+			height: 0.2,
+			padding: 0.05,
+			justifyContent: 'center',
+			alignContent: 'center',
+			fontFamily: './fonts/Roboto-msdf.json',
+			fontTexture: './fonts/Roboto-msdf.png',
+		})
+
+		creeperText.position.set(-10, -.6, 5.3)
+		creeperText.rotation.y -= 0 * Math.PI / 180
+		creeperText.rotation.x = 195 * Math.PI / 180
+		creeperText.rotation.z = 180 * Math.PI / 180
+		scene.add(creeperText)
+
+		creeperText.add(new ThreeMeshUI.Text({
+			content: 'AWW MAN',
 			fontSize: 0.1
 		}),)
 	}
