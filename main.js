@@ -501,9 +501,9 @@ import Creeper from './Models/Creeper.js'
 		creeper = new Creeper(scene)
 		await creeper.load()
 		scene.add(creeper.object)
-		creeper.object.position.set(-10, -1, 6)
+		creeper.object.position.set(-10, -1, -4)
 		creeper.object.position.y = -0.85
-		creeper.object.rotation.y += Math.PI
+		creeper.object.rotation.y += (90*Math.PI)/180
 		creeper.object.scale.set(.5, .5, .5)
 
 		const creeperText = new ThreeMeshUI.Block({
@@ -516,14 +516,14 @@ import Creeper from './Models/Creeper.js'
 			fontTexture: './fonts/Roboto-msdf.png',
 		})
 
-		creeperText.position.set(-10, -.6, 5.3)
-		creeperText.rotation.y -= 0 * Math.PI / 180
+		creeperText.position.set(-9.5, -0.6, -4)
+		creeperText.rotation.y -= 270 * Math.PI / 180
 		creeperText.rotation.x = 195 * Math.PI / 180
-		creeperText.rotation.z = 180 * Math.PI / 180
+		creeperText.rotation.z = 165 * Math.PI / 180
 		scene.add(creeperText)
 
 		creeperText.add(new ThreeMeshUI.Text({
-			content: 'AWW MAN',
+			content: 'AW MAN',
 			fontSize: 0.1
 		}),)
 	}
